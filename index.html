@@ -1,0 +1,378 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ol-50: #F5F2E8;
+    --ol-100: #E8E2C8;
+    --ol-200: #D4CA9A;
+    --ol-400: #A89B52;
+    --ol-600: #7A6E35;
+    --ol-800: #4E4520;
+    --ol-900: #2E2810;
+    --ye-50: #FFFBEA;
+    --ye-100: #FEF3C0;
+    --ye-300: #FCD34D;
+    --ye-500: #D4A017;
+    --ye-700: #92700A;
+    --wa-50: #FDF6E3;
+    --wa-400: #C9943A;
+    --wa-700: #7A5A1A;
+  }
+
+  .hero { padding: 2.5rem 2rem 1.5rem; border-bottom: 1px solid var(--ol-100); }
+  .hero h1 { font-size: 22px; font-weight: 500; color: var(--ol-900); }
+
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 1.5rem 2rem; border-bottom: 1px solid var(--ol-100); }
+  .metric-card { background: var(--ol-50); border-radius: 8px; padding: 1rem 1.25rem; }
+  .metric-label { font-size: 12px; color: var(--ol-600); margin-bottom: 4px; }
+  .metric-value { font-size: 18px; font-weight: 500; color: var(--ol-900); }
+  .metric-sub { font-size: 11px; color: var(--ol-400); margin-top: 2px; }
+
+  .section { padding: 1.5rem 2rem; border-bottom: 1px solid var(--ol-100); }
+  .section-title { font-size: 12px; font-weight: 500; color: var(--ol-600); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+
+  .skill-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .skill-label { font-size: 13px; color: var(--ol-800); width: 220px; flex-shrink: 0; }
+  .skill-bar-bg { flex: 1; height: 8px; background: var(--ol-100); border-radius: 4px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; border-radius: 4px; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+  .skill-level { font-size: 11px; color: var(--ol-400); width: 80px; text-align: right; flex-shrink: 0; }
+
+  .f-fill  { background: #A89B52; }
+  .i-fill  { background: #C9943A; }
+  .e-fill  { background: #7A6E35; }
+  .ie-fill { background: linear-gradient(90deg, #C9943A 50%, #7A6E35 50%); }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ol-600); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .card-sm { background: var(--ye-50); border: 1px solid var(--ye-100); border-radius: 12px; padding: 1rem 1.25rem; }
+  .card-sm h3 { font-size: 14px; font-weight: 500; color: var(--ol-900); margin-bottom: 8px; }
+  .card-sm p { font-size: 13px; color: var(--ol-700, #4E4520); line-height: 1.7; }
+
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .tag { font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .tag.strength { background: var(--ol-100); color: var(--ol-800); }
+  .tag.growth   { background: var(--ye-100); color: var(--ye-700); }
+  .tag.goal     { background: var(--wa-50);  color: var(--wa-700); border: 1px solid #E8D5A0; }
+
+  .body-text { font-size: 13px; color: var(--ol-800); line-height: 1.8; }
+
+  .quote-block {
+    border-left: 3px solid var(--ol-400);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    background: var(--ol-50);
+    font-size: 13px; color: var(--ol-600); line-height: 1.7; font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .att-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .att-item { background: var(--ol-50); border-radius: 8px; padding: 0.75rem 1rem; }
+  .att-label { font-size: 12px; color: var(--ol-600); margin-bottom: 5px; }
+  .att-dots { display: flex; gap: 4px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ol-200); }
+  .dot.on { background: var(--ol-600); }
+
+  .radar-wrap { display: flex; justify-content: center; }
+
+  .dl-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin: 1.5rem 2rem;
+    padding: 8px 18px;
+    border: 1px solid var(--ol-200);
+    border-radius: 8px;
+    font-size: 13px; color: var(--ol-700, #4E4520);
+    background: var(--ye-50);
+    cursor: pointer;
+  }
+  .dl-btn:hover { background: var(--ol-100); }
+</style>
+
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden">Digital literacy e-portfolio self-assessment reflection.</h2>
+
+<div class="hero">
+  <h1>Digital literacy self-assessment</h1>
+</div>
+
+<div class="metric-row">
+  <div class="metric-card">
+    <div class="metric-label">Overall confidence</div>
+    <div class="metric-value">Somewhat confident</div>
+    <div class="metric-sub">Knowledge & skills</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Expert-level areas</div>
+    <div class="metric-value">3 identified</div>
+    <div class="metric-sub">Locating · Copyright · Files</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-label">Professional learning goals</div>
+    <div class="metric-value">2 tools</div>
+    <div class="metric-sub">Whiteboards · R programming</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Knowledge level — Australian Curriculum digital literacy capabilities</div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#A89B52"></div>Foundational</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#C9943A"></div>Intermediate</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7A6E35"></div>Expert</div>
+  </div>
+  <div class="skill-row"><div class="skill-label">Online safety, privacy & wellbeing</div><div class="skill-bar-bg"><div class="skill-bar-fill i-fill" style="width:0%" data-width="62%"></div></div><div class="skill-level">Intermediate</div></div>
+  <div class="skill-row"><div class="skill-label">Locating & interpreting information</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:0%" data-width="100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Planning, communicating & collaborating</div><div class="skill-bar-bg"><div class="skill-bar-fill f-fill" style="width:0%" data-width="33%"></div></div><div class="skill-level">Foundational</div></div>
+  <div class="skill-row"><div class="skill-label">Creating text, images & presentations</div><div class="skill-bar-bg"><div class="skill-bar-fill i-fill" style="width:0%" data-width="62%"></div></div><div class="skill-level">Intermediate</div></div>
+  <div class="skill-row"><div class="skill-label">Understanding copyright</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:0%" data-width="100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Managing files & folders</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:0%" data-width="100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Selecting the correct digital tools</div><div class="skill-bar-bg"><div class="skill-bar-fill ie-fill" style="width:0%" data-width="81%"></div></div><div class="skill-level">Int → Expert</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strengths</div>
+  <div class="tag-group">
+    <span class="tag strength">Locating & evaluating online content</span>
+    <span class="tag strength">Creating documents & slide decks</span>
+    <span class="tag strength">Zoom / Microsoft Teams</span>
+    <span class="tag strength">Copyright awareness</span>
+    <span class="tag strength">File management</span>
+  </div>
+  <p class="body-text">Strengths show clearly in locating and evaluating online content, as well as in creating documents and slide decks. Communication systems like Zoom or Microsoft Teams function smoothly under routine use. These skills were developed through my background in academic research and university-level teaching, where digital tools have been a natural part of my work.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Growth areas & reflection</div>
+  <div class="tag-group">
+    <span class="tag growth">Applying digital tools in secondary education</span>
+    <span class="tag growth">Planning & collaborating tools</span>
+    <span class="tag growth">Selecting tools for specific tasks</span>
+  </div>
+  <p class="body-text">Moving forward, growth in applying digital resources within secondary education settings appears necessary, especially for those involved in planning, communicating, and collaborating, as well as improving my confidence in selecting the most appropriate tools for specific tasks.</p>
+  <div class="quote-block">"Like everyone else, my hesitations when learning new digital tools are limited time and motivation. I will clearly understand the value of a new tool and its relevance to my educational environment before investing time in learning it. Justifying why a tool is needed comes before attempting."</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Professional learning goals</div>
+  <div class="two-col">
+    <div class="card-sm">
+      <h3>Interactive whiteboards</h3>
+      <p>In particular, I am keen to build skills in using interactive whiteboards to better engage students within secondary classroom settings.</p>
+      <div style="margin-top:10px"><span class="tag goal">Goal · Device</span></div>
+    </div>
+    <div class="card-sm">
+      <h3>R programming</h3>
+      <p>In particular, I am keen to build skills in R programming for data analysis, supporting evidence-based and research-informed teaching practice.</p>
+      <div style="margin-top:10px"><span class="tag goal">Goal · Tool</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Attitude — importance of digital literacy</div>
+  <div class="att-grid">
+    <div class="att-item"><div class="att-label">Important for my success as a university student</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">Crucial part of Professional Experience (PEx)</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">I strive to improve my digital literacy while studying</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+    <div class="att-item"><div class="att-label">Necessary in my future career as a teacher</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">Will enable me to motivate & engage students</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">I place high value on professional learning</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+  </div>
+  <p style="font-size:11px;color:#A89B52;margin-top:10px">● ● ● ● = Extremely important &nbsp;|&nbsp; ● ● ● ○ = Important</p>
+</div>
+
+<div class="section" style="border:none">
+  <div class="section-title">Radar overview</div>
+  <div class="radar-wrap">
+    <div style="position:relative;width:320px;height:280px">
+      <canvas id="radar" role="img" aria-label="Radar chart of digital literacy levels across 7 capabilities. Peaks at locating info, copyright, and file management.">Skill levels: Online safety 3, Locating info 4, Planning 2, Creating content 3, Copyright 4, Files 4, Tool selection 3.5</canvas>
+    </div>
+  </div>
+</div>
+
+<button class="dl-btn" onclick="downloadHTML()"><i class="ti ti-download" aria-hidden="true" style="font-size:15px"></i> Download as HTML</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  document.querySelectorAll('.skill-bar-fill').forEach(el => {
+    setTimeout(() => { el.style.width = el.dataset.width; }, 300);
+  });
+
+  new Chart(document.getElementById('radar'), {
+    type: 'radar',
+    data: {
+      labels: ['Online safety','Locating info','Planning & collab','Creating content','Copyright','File management','Tool selection'],
+      datasets: [{
+        data: [3, 4, 2, 3, 4, 4, 3.5],
+        backgroundColor: 'rgba(168,155,82,0.18)',
+        borderColor: '#7A6E35',
+        pointBackgroundColor: '#A89B52',
+        borderWidth: 2, pointRadius: 4
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        r: {
+          min: 0, max: 4,
+          ticks: { stepSize: 1, display: false },
+          grid: { color: 'rgba(168,155,82,0.2)' },
+          angleLines: { color: 'rgba(168,155,82,0.2)' },
+          pointLabels: { font: { size: 11 }, color: '#A89B52' }
+        }
+      }
+    }
+  });
+
+  function downloadHTML() {
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Literacy Self-Assessment</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"><\/script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FDFBF4; color: #2E2810; max-width: 760px; margin: 0 auto; padding: 2rem 1rem; }
+  .hero { padding: 2rem 0 1.5rem; border-bottom: 1px solid #E8E2C8; margin-bottom: 1.5rem; }
+  .hero h1 { font-size: 24px; font-weight: 500; color: #2E2810; }
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2rem; }
+  .metric-card { background: #F5F2E8; border-radius: 8px; padding: 1rem 1.25rem; }
+  .metric-label { font-size: 12px; color: #7A6E35; margin-bottom: 4px; }
+  .metric-value { font-size: 18px; font-weight: 500; color: #2E2810; }
+  .metric-sub { font-size: 11px; color: #A89B52; margin-top: 2px; }
+  .section { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #E8E2C8; }
+  .section-title { font-size: 12px; font-weight: 500; color: #7A6E35; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+  .skill-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .skill-label { font-size: 13px; color: #4E4520; width: 220px; flex-shrink: 0; }
+  .skill-bar-bg { flex: 1; height: 8px; background: #E8E2C8; border-radius: 4px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; border-radius: 4px; }
+  .f-fill { background: #A89B52; } .i-fill { background: #C9943A; } .e-fill { background: #7A6E35; }
+  .ie-fill { background: linear-gradient(90deg, #C9943A 50%, #7A6E35 50%); }
+  .skill-level { font-size: 11px; color: #A89B52; width: 80px; text-align: right; flex-shrink: 0; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #7A6E35; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .card-sm { background: #FFFBEA; border: 1px solid #FEF3C0; border-radius: 12px; padding: 1rem 1.25rem; }
+  .card-sm h3 { font-size: 14px; font-weight: 500; color: #2E2810; margin-bottom: 8px; }
+  .card-sm p { font-size: 13px; color: #4E4520; line-height: 1.7; }
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .tag { font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .tag.strength { background: #E8E2C8; color: #4E4520; }
+  .tag.growth { background: #FEF3C0; color: #92700A; }
+  .tag.goal { background: #FDF6E3; color: #7A5A1A; border: 1px solid #E8D5A0; }
+  .body-text { font-size: 13px; color: #4E4520; line-height: 1.8; }
+  .quote-block { border-left: 3px solid #A89B52; border-radius: 0 8px 8px 0; padding: 0.75rem 1rem; background: #F5F2E8; font-size: 13px; color: #7A6E35; line-height: 1.7; font-style: italic; margin-top: 1rem; }
+  .att-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .att-item { background: #F5F2E8; border-radius: 8px; padding: 0.75rem 1rem; }
+  .att-label { font-size: 12px; color: #7A6E35; margin-bottom: 5px; }
+  .att-dots { display: flex; gap: 4px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #D4CA9A; }
+  .dot.on { background: #7A6E35; }
+  .radar-wrap { display: flex; justify-content: center; }
+<\/style>
+</head>
+<body>
+
+<div class="hero"><h1>Digital literacy self-assessment</h1></div>
+
+<div class="metric-row">
+  <div class="metric-card"><div class="metric-label">Overall confidence</div><div class="metric-value">Somewhat confident</div><div class="metric-sub">Knowledge & skills</div></div>
+  <div class="metric-card"><div class="metric-label">Expert-level areas</div><div class="metric-value">3 identified</div><div class="metric-sub">Locating · Copyright · Files</div></div>
+  <div class="metric-card"><div class="metric-label">Professional learning goals</div><div class="metric-value">2 tools</div><div class="metric-sub">Whiteboards · R programming</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Knowledge level — Australian Curriculum digital literacy capabilities</div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#A89B52"></div>Foundational</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#C9943A"></div>Intermediate</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#7A6E35"></div>Expert</div>
+  </div>
+  <div class="skill-row"><div class="skill-label">Online safety, privacy & wellbeing</div><div class="skill-bar-bg"><div class="skill-bar-fill i-fill" style="width:62%"></div></div><div class="skill-level">Intermediate</div></div>
+  <div class="skill-row"><div class="skill-label">Locating & interpreting information</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Planning, communicating & collaborating</div><div class="skill-bar-bg"><div class="skill-bar-fill f-fill" style="width:33%"></div></div><div class="skill-level">Foundational</div></div>
+  <div class="skill-row"><div class="skill-label">Creating text, images & presentations</div><div class="skill-bar-bg"><div class="skill-bar-fill i-fill" style="width:62%"></div></div><div class="skill-level">Intermediate</div></div>
+  <div class="skill-row"><div class="skill-label">Understanding copyright</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Managing files & folders</div><div class="skill-bar-bg"><div class="skill-bar-fill e-fill" style="width:100%"></div></div><div class="skill-level">Expert</div></div>
+  <div class="skill-row"><div class="skill-label">Selecting the correct digital tools</div><div class="skill-bar-bg"><div class="skill-bar-fill ie-fill" style="width:81%"></div></div><div class="skill-level">Int → Expert</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">Strengths</div>
+  <div class="tag-group">
+    <span class="tag strength">Locating & evaluating online content</span>
+    <span class="tag strength">Creating documents & slide decks</span>
+    <span class="tag strength">Zoom / Microsoft Teams</span>
+    <span class="tag strength">Copyright awareness</span>
+    <span class="tag strength">File management</span>
+  </div>
+  <p class="body-text">Strengths show clearly in locating and evaluating online content, as well as in creating documents and slide decks. Communication systems like Zoom or Microsoft Teams function smoothly under routine use. These skills were developed through my background in academic research and university-level teaching, where digital tools have been a natural part of my work.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Growth areas & reflection</div>
+  <div class="tag-group">
+    <span class="tag growth">Applying digital tools in secondary education</span>
+    <span class="tag growth">Planning & collaborating tools</span>
+    <span class="tag growth">Selecting tools for specific tasks</span>
+  </div>
+  <p class="body-text">Moving forward, growth in applying digital resources within secondary education settings appears necessary, especially for those involved in planning, communicating, and collaborating, as well as improving my confidence in selecting the most appropriate tools for specific tasks.</p>
+  <div class="quote-block">"Like everyone else, my hesitations when learning new digital tools are limited time and motivation. I will clearly understand the value of a new tool and its relevance to my educational environment before investing time in learning it. Justifying why a tool is needed comes before attempting."</div>
+</div>
+
+<div class="section">
+  <div class="section-title">Professional learning goals</div>
+  <div class="two-col">
+    <div class="card-sm"><h3>Interactive whiteboards</h3><p>In particular, I am keen to build skills in using interactive whiteboards to better engage students within secondary classroom settings.</p><div style="margin-top:10px"><span class="tag goal">Goal · Device</span></div></div>
+    <div class="card-sm"><h3>R programming</h3><p>In particular, I am keen to build skills in R programming for data analysis, supporting evidence-based and research-informed teaching practice.</p><div style="margin-top:10px"><span class="tag goal">Goal · Tool</span></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Attitude — importance of digital literacy</div>
+  <div class="att-grid">
+    <div class="att-item"><div class="att-label">Important for my success as a university student</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">Crucial part of Professional Experience (PEx)</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">I strive to improve my digital literacy while studying</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+    <div class="att-item"><div class="att-label">Necessary in my future career as a teacher</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">Will enable me to motivate & engage students</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+    <div class="att-item"><div class="att-label">I place high value on professional learning</div><div class="att-dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+  </div>
+  <p style="font-size:11px;color:#A89B52;margin-top:10px">● ● ● ● = Extremely important &nbsp;|&nbsp; ● ● ● ○ = Important</p>
+</div>
+
+<div style="margin-bottom:2rem">
+  <div class="section-title" style="padding:0 0 1rem">Radar overview</div>
+  <div class="radar-wrap">
+    <div style="position:relative;width:320px;height:280px">
+      <canvas id="radar"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+new Chart(document.getElementById('radar'), {
+  type: 'radar',
+  data: {
+    labels: ['Online safety','Locating info','Planning & collab','Creating content','Copyright','File management','Tool selection'],
+    datasets: [{ data: [3,4,2,3,4,4,3.5], backgroundColor: 'rgba(168,155,82,0.18)', borderColor: '#7A6E35', pointBackgroundColor: '#A89B52', borderWidth: 2, pointRadius: 4 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { r: { min: 0, max: 4, ticks: { display: false }, grid: { color: 'rgba(168,155,82,0.2)' }, angleLines: { color: 'rgba(168,155,82,0.2)' }, pointLabels: { font: { size: 11 }, color: '#A89B52' } } } }
+});
+<\/script>
+</body>
+</html>`;
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'digital-literacy-eportfolio.html';
+    a.click();
+  }
+</script>
