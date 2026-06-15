@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thinglink — Managing and Operating</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1a2744;
+    --teal: #2a9d8f;
+    --light-teal: #e8f5f3;
+    --amber: #e9c46a;
+    --white: #ffffff;
+    --light-grey: #f5f7fa;
+    --text: #2d3748;
+    --muted: #718096;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--light-grey); color: var(--text); min-height: 100vh; }
+
+  header { background: var(--navy); color: var(--white); padding: 2.5rem 2rem 2rem; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(42, 157, 143, 0.2); }
+
+  .badge { display: inline-block; background: var(--teal); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 0.8rem; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; line-height: 1.2; margin-bottom: 0.5rem; }
+  header p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .tag { background: rgba(255,255,255,0.15); color: var(--white); font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 20px; }
+
+  main { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .card { background: var(--white); border-radius: 16px; padding: 1.8rem; margin-bottom: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+  .icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .icon-teal { background: var(--light-teal); }
+  .icon-amber { background: #fef9e7; }
+  .icon-navy { background: #eef0f7; }
+  .card h2 { font-size: 1rem; font-weight: 600; color: var(--navy); }
+  .card h3 { font-size: 0.85rem; font-weight: 500; color: var(--muted); margin-top: 0.1rem; }
+
+  .descriptor-box { background: var(--light-teal); border-left: 4px solid var(--teal); border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
+  .descriptor-box p { font-size: 0.85rem; line-height: 1.6; color: var(--text); }
+  .descriptor-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 0.5rem; }
+
+  .dimensions-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; margin-top: 0.8rem; }
+  .dim-item { background: var(--light-grey); border-radius: 10px; padding: 0.8rem 1rem; text-align: center; }
+  .dim-item .dim-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .dim-item .dim-label { font-size: 0.7rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; }
+  .dim-item p { font-size: 0.8rem; color: var(--text); margin-top: 0.2rem; }
+
+  .ac-pill { display: inline-block; background: #eef0f7; color: var(--navy); font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 6px; margin: 0.2rem 0.2rem 0.2rem 0; }
+
+  .academic-item { border-left: 3px solid var(--amber); padding-left: 1rem; margin-bottom: 1rem; }
+  .academic-item .author { font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+  .academic-item p { font-size: 0.82rem; line-height: 1.6; color: var(--text); }
+
+  .samr-badge { display: inline-block; background: var(--amber); color: var(--navy); font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 0.5rem; }
+
+  .visit-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 10px; margin-top: 0.5rem; transition: background 0.2s; }
+  .visit-btn:hover { background: #238f82; }
+
+  @media (max-width: 600px) { .dimensions-grid { grid-template-columns: 1fr; } header h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Managing and Operating</div>
+  <h1>Thinglink</h1>
+  <p>GC: Digital Literacy — Select and operate tools · Level 5 · Year 8</p>
+  <div class="tag-row">
+    <span class="tag">Year 7–8</span>
+    <span class="tag">Level 5</span>
+    <span class="tag">Civics and Citizenship</span>
+    <span class="tag">HASS</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-teal">🎯</div>
+      <div>
+        <h2>GC:DL Sub-element Descriptor</h2>
+        <h3>Select and operate tools — Level 5</h3>
+      </div>
+    </div>
+    <div class="descriptor-label">Students will:</div>
+    <div class="descriptor-box">
+      <p>• Select and use the advanced or unfamiliar features of digital tools to efficiently complete tasks, troubleshoot common problems and automate repetitive tasks (ACARA, 2022b)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-teal">📍</div>
+      <div>
+        <h2>About Thinglink</h2>
+        <h3>Free interactive image platform</h3>
+      </div>
+    </div>
+    <p style="font-size:0.88rem; line-height:1.7; margin-bottom:1rem;">Students take or source an image of an Australian federal ballot paper (House of Representatives and Senate) and configure clickable hotspots over it, layering text, audio, and video to explain each stage of the voting process: how to number preferences, how preferential voting works, what makes a vote formal or informal, and how votes are counted to form government.</p>
+    <div class="dimensions-grid">
+      <div class="dim-item">
+        <div class="dim-icon">⚙️</div>
+        <div class="dim-label">Select</div>
+        <p>Configure hotspot tagging and embedded media layers</p>
+      </div>
+      <div class="dim-item">
+        <div class="dim-icon">🔧</div>
+        <div class="dim-label">Troubleshoot</div>
+        <p>Fix overlapping hotspots and failed media embeds</p>
+      </div>
+      <div class="dim-item">
+        <div class="dim-icon">🤖</div>
+        <div class="dim-label">Automate</div>
+        <p>Apply consistent tag styling across all hotspots</p>
+      </div>
+    </div>
+    <a href="https://www.thinglink.com" target="_blank" class="visit-btn">Visit Thinglink ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-navy">📚</div>
+      <div>
+        <h2>Curriculum Links</h2>
+        <h3>Australian Curriculum v9 (ACARA, 2022a)</h3>
+      </div>
+    </div>
+    <span class="ac-pill">AC9HC8K01</span>
+    <p style="font-size:0.82rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;">
+      AC9HC8K01: How Australians are informed about and participate in democracy.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-amber">🔬</div>
+      <div><h2>Academic Justification</h2></div>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Falloon (2020) — TDC Framework</div>
+      <p>Both technical competence (mechanics of operating digital technologies) and technological competence (understanding the role and potential of digital tools) in the TDC framework develop simultaneously as students operate Thinglink's tagging features while judging which voting concepts each hotspot should carry.</p>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Mishra and Koehler (2006) — TPACK</div>
+      <p>Students can only place meaningful hotspots on the ballot paper if they understand preferential voting itself. Technological and content knowledge are developed together.</p>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Puentedura (2013) — SAMR</div>
+      <div class="samr-badge">Modification</div>
+      <p>A static ballot paper is redesigned into a layered, interactive explainer that embeds multimedia and reveals the voting process on demand — significantly redesigning the original task.</p>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>

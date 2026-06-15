@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canva for Education — Creating and Exchanging</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1a2744;
+    --teal: #2a9d8f;
+    --light-teal: #e8f5f3;
+    --amber: #e9c46a;
+    --white: #ffffff;
+    --light-grey: #f5f7fa;
+    --text: #2d3748;
+    --muted: #718096;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--light-grey); color: var(--text); min-height: 100vh; }
+
+  header { background: var(--navy); color: var(--white); padding: 2.5rem 2rem 2rem; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(42, 157, 143, 0.2); }
+
+  .badge { display: inline-block; background: var(--teal); color: var(--white); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 0.8rem; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 1.9rem; line-height: 1.2; margin-bottom: 0.5rem; }
+  header p { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .tag { background: rgba(255,255,255,0.15); color: var(--white); font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 20px; }
+
+  main { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  .card { background: var(--white); border-radius: 16px; padding: 1.8rem; margin-bottom: 1.2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+  .icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .icon-teal { background: var(--light-teal); }
+  .icon-amber { background: #fef9e7; }
+  .icon-navy { background: #eef0f7; }
+  .card h2 { font-size: 1rem; font-weight: 600; color: var(--navy); }
+  .card h3 { font-size: 0.85rem; font-weight: 500; color: var(--muted); margin-top: 0.1rem; }
+
+  .descriptor-box { background: var(--light-teal); border-left: 4px solid var(--teal); border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin-bottom: 1.2rem; }
+  .descriptor-box p { font-size: 0.85rem; line-height: 1.6; color: var(--text); }
+  .descriptor-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 0.5rem; }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 0.8rem; }
+  .feature-item { background: var(--light-grey); border-radius: 10px; padding: 0.8rem 1rem; }
+  .feature-item .f-label { font-size: 0.7rem; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em; }
+  .feature-item p { font-size: 0.82rem; color: var(--text); margin-top: 0.2rem; line-height: 1.5; }
+
+  .ac-pill { display: inline-block; background: #eef0f7; color: var(--navy); font-size: 0.75rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 6px; margin: 0.2rem 0.2rem 0.2rem 0; }
+
+  .academic-item { border-left: 3px solid var(--amber); padding-left: 1rem; margin-bottom: 1rem; }
+  .academic-item .author { font-size: 0.8rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+  .academic-item p { font-size: 0.82rem; line-height: 1.6; color: var(--text); }
+
+  .samr-badge { display: inline-block; background: var(--amber); color: var(--navy); font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 6px; margin-bottom: 0.5rem; }
+
+  .visit-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal); color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 10px; margin-top: 0.5rem; transition: background 0.2s; }
+  .visit-btn:hover { background: #238f82; }
+
+  @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } header h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Creating and Exchanging</div>
+  <h1>Canva for Education</h1>
+  <p>GC: Digital Literacy — Create, communicate and collaborate · Level 5 · Year 8</p>
+  <div class="tag-row">
+    <span class="tag">Year 7–8</span>
+    <span class="tag">Level 5</span>
+    <span class="tag">Civics and Citizenship</span>
+    <span class="tag">HASS</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-teal">🎯</div>
+      <div>
+        <h2>GC:DL Sub-element Descriptor</h2>
+        <h3>Create, communicate and collaborate — Level 5</h3>
+      </div>
+    </div>
+    <div class="descriptor-label">Students will:</div>
+    <div class="descriptor-box">
+      <p>• Select and control advanced features of appropriate digital tools to independently create content and effectively communicate and collaborate with wider groups (ACARA, 2022b)</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-teal">🎨</div>
+      <div>
+        <h2>About Canva for Education</h2>
+        <h3>Free visual collaboration platform</h3>
+      </div>
+    </div>
+    <p style="font-size:0.88rem; line-height:1.7; margin-bottom:1rem;">Students work in small groups to design and publish a community newsletter. They select advanced design features and contribute together in real time. Distributing the newsletter to parents via email is the biggest motivation — publishing for real readers transforms the task from assignment to message.</p>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="f-label">Advanced Features</div>
+        <p>Multipage layout design, typography customisation, data visualisation</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-label">Collaboration</div>
+        <p>Real-time co-creation with live peer feedback</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-label">Audience</div>
+        <p>Newsletter distributed to parents via email</p>
+      </div>
+      <div class="feature-item">
+        <div class="f-label">Access</div>
+        <p>Free for educators and students</p>
+      </div>
+    </div>
+    <a href="https://www.canva.com/education/" target="_blank" class="visit-btn">Visit Canva for Education ↗</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-navy">📚</div>
+      <div>
+        <h2>Curriculum Links</h2>
+        <h3>Australian Curriculum v9 (ACARA, 2022a)</h3>
+      </div>
+    </div>
+    <span class="ac-pill">AC9HC8K01</span>
+    <span class="ac-pill">AC9HC8S05</span>
+    <p style="font-size:0.82rem; color:var(--muted); margin-top:0.5rem; line-height:1.6;">
+      AC9HC8K01: How Australians are informed about and participate in democracy.<br><br>
+      AC9HC8S05: Create descriptions, explanations and arguments using civics and citizenship knowledge, concepts and terms that reference evidence.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-amber">🔬</div>
+      <div><h2>Academic Justification</h2></div>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Mishra and Koehler (2006) — TPACK</div>
+      <p>Students decide how to represent civic content accurately (CK), communicate it to a parent audience (PK), and select the best advanced Canva features (TK) — all three knowledge domains working together.</p>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Falloon (2020) — TDC Framework</div>
+      <p>Critical selection of fit-for-purpose digital tools is central to pedagogical and learning design competence within the TDC framework. The newsletter task asks students to evaluate which advanced Canva features best serve their civic communication goal for a specific parent audience.</p>
+    </div>
+
+    <div class="academic-item">
+      <div class="author">Puentedura (2013) — SAMR</div>
+      <div class="samr-badge">Modification</div>
+      <p>Collaborative real-time co-creation with live peer feedback and distribution to parents redesigns the civic communication task beyond a written essay or printed poster.</p>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
