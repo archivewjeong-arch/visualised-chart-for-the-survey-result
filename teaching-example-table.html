@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching Example Table</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+    padding: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  tr {
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  td {
+    padding: 1rem 1.2rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  td:first-child {
+    background: #1a2744;
+    color: #ffffff;
+    font-weight: 600;
+    width: 200px;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+
+  td:last-child {
+    background: #ffffff;
+    color: #2d3748;
+  }
+
+  tr:nth-child(even) td:last-child {
+    background: #f5f7fa;
+  }
+
+  .highlight {
+    background: #2a9d8f;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <td>Curriculum</td>
+    <td>Australian Curriculum: HASS, Civics and Citizenship, Year 8</td>
+  </tr>
+  <tr>
+    <td>Content Descriptor</td>
+    <td><span class="highlight">AC9HC8K02</span><br>The role of political parties and independent representatives in Australian democracy, including elections and the formation of governments (ACARA, 2022a)</td>
+  </tr>
+  <tr>
+    <td>GC:DL Element</td>
+    <td>Creating and Exchanging</td>
+  </tr>
+  <tr>
+    <td>Sub-element and Level</td>
+    <td><span class="highlight">Level 5 (Year 7-8)</span><br>Create, communicate and collaborate: Select and control advanced features of appropriate digital tools to independently create content and effectively communicate and collaborate with wider groups (ACARA, 2022b)</td>
+  </tr>
+  <tr>
+    <td>APST</td>
+    <td><span class="highlight">2.6</span><br>Implement teaching strategies for using ICT to expand curriculum learning opportunities for students</td>
+  </tr>
+</table>
+</body>
+</html>
