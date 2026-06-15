@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Teaching and Learning</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;400i&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #2C1810;
+    --teal: #C9A84C;
+    --light-teal: #FFF3D0;
+    --amber: #F0D080;
+    --white: #ffffff;
+    --light: #FFF8E7;
+    --text: #2C1810;
+    --muted: #8B6914;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+    color: var(--text);
+  }
+
+  /* Quote banner */
+  .quote-banner {
+    background: var(--navy);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-banner::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 20px;
+    font-size: 12rem;
+    color: rgba(201, 168, 76, 0.15);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  .quote-banner blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-banner cite {
+    display: block;
+    font-size: 1rem;
+    color: var(--amber);
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  /* Main content */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Text section */
+  .text-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .text-card p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .text-card p:last-child { margin-bottom: 0; }
+
+  .highlight {
+    background: var(--light-teal);
+    border-left: 4px solid var(--teal);
+    padding: 0.8rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  /* Framework section */
+  .framework-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .principle-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .principle-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .principle-header {
+    background: var(--navy);
+    padding: 0.9rem 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .principle-num {
+    background: var(--teal);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+  }
+
+  .principle-header h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    flex: 1;
+    margin: 0 0.8rem;
+  }
+
+  .toggle-icon {
+    color: var(--amber);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .principle-body {
+    padding: 1rem 1.1rem;
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: var(--text);
+    display: none;
+    background: var(--light);
+  }
+
+  .principle-body.open {
+    display: block;
+  }
+
+  .toggle-icon.open {
+    transform: rotate(45deg);
+  }
+
+  /* QCAA card */
+  .qcaa-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .qcaa-icon {
+    background: var(--light-teal);
+    border-radius: 10px;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .qcaa-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .qcaa-card p {
+    font-size: 0.83rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .closing {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    font-size: 0.9rem;
+    color: var(--white);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .closing strong { color: var(--amber); font-style: normal; }
+
+  @media (max-width: 600px) {
+    .principles-grid { grid-template-columns: 1fr; }
+    .quote-banner blockquote { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Quote banner -->
+<div class="quote-banner">
+  <blockquote>
+    "AI has changed how I work as an educator in ways I did not expect."
+    <cite>Discussion about the use of AI within Teaching and Learning</cite>
+  </blockquote>
+</div>
+
+<div class="content">
+
+  <!-- Personal experience -->
+  <div class="text-card">
+    <p>At first, I refused to use AI because of vague anxiety, as everyone did, but at some point, I think I came to accept it naturally. In terms of work, it is true that AI has tremendously changed the way classes are prepared and delivered. In Blundell et al. (2025), 44 Australian K-12 teachers used AI the most to prepare resources and plan lessons. Teachers generally viewed it as supporting tasks rather than taking over, and I agree with this opinion.</p>
+    <p>When I was teaching at university, I used AI mainly to put together class materials and brainstorm activity ideas. I think it played the biggest role in helping me use my limited time efficiently. As a pragmatic applied linguist, it was particularly useful for me to ask AI to consider the difficulties non-native speakers might experience with language use in context. As a native Korean speaker, I simply missed an angle, and AI helped bring it to the surface.</p>
+
+    <div class="highlight">
+      AI has opened a new door for me to gain access to broader perspectives and data that would have been practically impossible to find on my own. But I've also experienced firsthand what happens when institutions don't have a clear stance on AI. Around 2022, the university I was tutoring at had no clear AI framework, so we came up with a quick solution to bring students together and have them write essays under supervision. As anyone would expect, the result became my burden, and I had to mark each student's essay by hand. We tried to sweep it under the carpet, which left me with a horrible experience. According to Somabut et al. (2025), only 13% of schools had formal AI policies at the time, although 87% of teachers were interested in using AI, a gap that exactly matches what I experienced.
+    </div>
+  </div>
+
+  <!-- Framework section -->
+  <div class="text-card">
+    <div class="framework-title">Australian Framework for Generative AI in Schools (Department of Education, 2024)</div>
+    <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1rem;">Click each principle to expand.</p>
+
+    <div class="principles-grid">
+
+      <div class="principle-card" onclick="toggle(this)">
+        <div class="principle-header">
+          <span class="principle-num">1.4</span>
+          <h3>Critical Thinking</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="principle-body">
+          AI should be used to support, not replace, critical thinking. Students must remain the active thinkers and decision-makers in their learning.
+        </div>
+      </div>
+
+      <div class="principle-card" onclick="toggle(this)">
+        <div class="principle-header">
+          <span class="principle-num">1.6</span>
+          <h3>Academic Integrity</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="principle-body">
+          Academic integrity must be upheld. Schools need to explicitly teach students how to use AI ethically and with appropriate attribution.
+        </div>
+      </div>
+
+      <div class="principle-card" onclick="toggle(this)">
+        <div class="principle-header">
+          <span class="principle-num">5.1</span>
+          <h3>Teacher Accountability</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="principle-body">
+          Teachers retain full accountability for all decisions, even when supported by AI. Professional judgement is not delegated to the tool.
+        </div>
+      </div>
+
+      <div class="principle-card" onclick="toggle(this)">
+        <div class="principle-header">
+          <span class="principle-num">6.1</span>
+          <h3>Student Data Privacy</h3>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="principle-body">
+          Student data privacy must be protected. Personal information should not be unnecessarily shared through AI platforms.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QCAA -->
+    <div class="qcaa-card">
+      <div class="qcaa-icon">🏫</div>
+      <div>
+        <h3>Queensland Curriculum and Assessment Authority (QCAA, 2024)</h3>
+        <p>At the state level, QCAA likewise emphasises academic integrity and the responsible use of AI in assessment, requiring schools to explicitly educate students on the conditions under which AI tools can and cannot be used.</p>
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">
+      As someone just stepping into the profession, these frameworks are <strong>not a set of rules to follow</strong> but a starting point for thinking through what responsible AI use actually looks like in practice.
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function toggle(card) {
+    const body = card.querySelector('.principle-body');
+    const icon = card.querySelector('.toggle-icon');
+    body.classList.toggle('open');
+    icon.classList.toggle('open');
+    icon.textContent = body.classList.contains('open') ? '+' : '+';
+  }
+</script>
+
+</body>
+</html>
