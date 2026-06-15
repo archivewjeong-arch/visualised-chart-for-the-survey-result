@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attainment of Learning Goals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FFF8E7;
+    color: #2C1810;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #2C1810;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: 'i';
+    position: absolute;
+    top: -20px; right: 30px;
+    font-size: 10rem;
+    color: rgba(201, 168, 76, 0.1);
+    font-family: 'Playfair Display', serif;
+  }
+
+  header .badge {
+    display: inline-block;
+    background: #C9A84C;
+    color: #2C1810;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 0.8rem;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .intro {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 10px rgba(44,24,16,0.07);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: #2C1810;
+  }
+
+  .goal-card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 12px rgba(44,24,16,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .goal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(44,24,16,0.12);
+  }
+
+  .goal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.4rem;
+  }
+
+  .goal-num {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+
+  .goal-1 .goal-num { background: #2C1810; color: #F0D080; }
+  .goal-2 .goal-num { background: #C9A84C; color: #2C1810; }
+  .goal-3 .goal-num { background: #F0D080; color: #2C1810; }
+
+  .goal-title-wrap { flex: 1; }
+
+  .goal-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #8B6914;
+    margin-bottom: 0.2rem;
+  }
+
+  .goal-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2C1810;
+    line-height: 1.4;
+  }
+
+  .toggle-arrow {
+    font-size: 1.2rem;
+    color: #C9A84C;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .toggle-arrow.open { transform: rotate(90deg); }
+
+  .goal-body {
+    display: none;
+    padding: 0 1.4rem 1.4rem;
+    border-top: 1px solid #FFF3D0;
+  }
+
+  .goal-body.open { display: block; }
+
+  .goal-body p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #2C1810;
+    margin-top: 1rem;
+  }
+
+  .tool-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #FFF3D0;
+    border: 1px solid #C9A84C;
+    color: #2C1810;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    margin: 0.8rem 0.2rem 0;
+  }
+
+  .ac-tag {
+    display: inline-block;
+    background: #2C1810;
+    color: #F0D080;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    margin: 0.3rem 0.2rem 0;
+  }
+
+  .takeaway {
+    background: #2C1810;
+    border-radius: 14px;
+    padding: 1.5rem 1.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .takeaway .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #C9A84C;
+    margin-bottom: 0.6rem;
+  }
+
+  .takeaway p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #ffffff;
+  }
+
+  .takeaway strong { color: #F0D080; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Part B — i</div>
+  <h1>Attainment of Learning Goals</h1>
+</header>
+
+<main>
+
+  <div class="intro">
+    When I set my three professional learning goals in Assessment 1, I had strengths in locating and evaluating digital information, but I was less confident in selecting purpose-driven tools suitable for specific teaching contexts and building structured collaborative tasks. Reflecting on my learning across Modules 4, 5, and 6, I can see that I have achieved each goal, although there were some differences from my initial expectations.
+  </div>
+
+  <div class="goal-card goal-1" onclick="toggleGoal(this)">
+    <div class="goal-header">
+      <div class="goal-num">1</div>
+      <div class="goal-title-wrap">
+        <div class="goal-label">Goal 1</div>
+        <div class="goal-title">To vividly implement Year 8 civics education using digital tools that reflect the actual Australian democratic system.</div>
+      </div>
+      <div class="toggle-arrow">›</div>
+    </div>
+    <div class="goal-body">
+      <p>This goal was directly derived from the Page 4 Thinglink activity, in which students explored the preferential voting method step-by-step by setting interactive hotspots on an Australian ballot. It was surprising to find that this activity, which was not anticipated when the goal was first set, was clearly aligned with the AC9HC8K01 standard and the inquiry element of general digital literacy competency.</p>
+      <div>
+        <span class="tool-tag">📍 Thinglink</span>
+        <span class="tool-tag">🗳️ AEC Voting Tool</span>
+      </div>
+      <div>
+        <span class="ac-tag">AC9HC8K01</span>
+        <span class="ac-tag">Investigating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="goal-card goal-2" onclick="toggleGoal(this)">
+    <div class="goal-header">
+      <div class="goal-num">2</div>
+      <div class="goal-title-wrap">
+        <div class="goal-label">Goal 2</div>
+        <div class="goal-title">To teach students how to create and publish a digital newsletter on civic engagement.</div>
+      </div>
+      <div class="toggle-arrow">›</div>
+    </div>
+    <div class="goal-body">
+      <p>I achieved this goal through the Canva activity I presented on page 4. In this activity, students designed and published a community newsletter targeting actual parents. The act of publishing to real readers, which I identified as a key motivational element in A1, became the centre of the activity design, and I was able to confirm my belief that real people change student engagement.</p>
+      <div>
+        <span class="tool-tag">🎨 Canva for Education</span>
+      </div>
+      <div>
+        <span class="ac-tag">AC9HC8K05</span>
+        <span class="ac-tag">Creating and Exchanging</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="goal-card goal-3" onclick="toggleGoal(this)">
+    <div class="goal-header">
+      <div class="goal-num">3</div>
+      <div class="goal-title-wrap">
+        <div class="goal-label">Goal 3</div>
+        <div class="goal-title">Building structure into collaborative digital tasks.</div>
+      </div>
+      <div class="toggle-arrow">›</div>
+    </div>
+    <div class="goal-body">
+      <p>This was the goal I found most difficult. The Genially activity on page 5 addressed this goal by enabling students to independently construct complex multi-page interactive maps, manage branching navigation, fix broken links, and apply consistent formatting. However, I am aware that Genially is closer to a creation tool than a collaboration tool. In retrospect, while I have addressed the complexity and structural aspects of Goal 3 to some extent, managing group roles and shared digital workflows that require collaboration remains an area that needs further development in my actual teaching practice.</p>
+      <div>
+        <span class="tool-tag">✨ Genially</span>
+      </div>
+      <div>
+        <span class="ac-tag">AC9HC8S04</span>
+        <span class="ac-tag">AC9HC8S05</span>
+        <span class="ac-tag">Managing and Operating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="label">Key Takeaway</div>
+    <p>The most important lesson I learned is that <strong>selecting the right tool for the purpose is inseparable from content knowledge.</strong> You cannot choose the appropriate digital tool without a deep understanding of what you want to teach your students. This is exactly how TPACK was applied in practice.</p>
+  </div>
+
+</main>
+
+<script>
+  function toggleGoal(card) {
+    const body = card.querySelector('.goal-body');
+    const arrow = card.querySelector('.toggle-arrow');
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
